@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+  <title></title>
+  <link href="https://code.ionicframework.com/1.0.0-rc.5/css/ionic.min.css" rel="stylesheet">
+</head>
+
+<body ng-app="starter">
+  <ion-pane ng-controller="TodoController">
+    <ion-header-bar class="bar-stable">
+      <div class="buttons">
+        <button class="button button-icon icon ion-ios-minus-outline" ng-click="showDelete = !showDelete"></button>
+      </div>
+      <h1 class="title">任务列表</h1>
+      <button class="right button button-icon icon ion-plus" ng-click="create()"></button>
+    </ion-header-bar>
+    <ion-content>
+      <ion-list show-delete="showDelete">
+        <div class="item item-divider">待完成任务</div>
+        <ion-item ng-repeat="todo in todos | filter: {done: false}">
+          <ion-checkbox ng-model="todo.done" ng-change="update(todo)">{{todo.title}}</ion-checkbox>
+          <ion-delete-button class="ion-minus-circled" ng-click="todos.splice($index, 1)">
+          </ion-delete-button>
+        </ion-item>
+        <div class="item item-divider">已完成任务</div>
+        <ion-item ng-repeat="todo in todos | filter: {done: true}">
+          <ion-checkbox ng-model="todo.done" ng-change="update(todo)">{{todo.title}}</ion-checkbox>
+          <ion-delete-button class="ion-minus-circled" ng-click="todos.splice($index, 1)">
+          </ion-delete-button>
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-pane>
+  <script src="https://code.ionicframework.com/1.0.0-rc.5/js/ionic.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pouchdb/3.4.0/pouchdb.min.js"></script>
+  <script src="js/app.js"></script>
+  <script src="cordova.js"></script>
+</body>
+
+</html>
