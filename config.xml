@@ -2,7 +2,7 @@
   <widget id="com.rubinek.todoapp" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Todo App</name>
     <description>
-      An Todo App using Ionic Framework and Cordova.
+      A Todo App using Ionic Framework and CouchDB.
     </description>
     <author email="madz@rubinek.com" href="http://rubinek.com/">
       RubineK Team
